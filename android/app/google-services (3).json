@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "135940368784",
+    "firebase_url": "https://salon-4c62f-default-rtdb.firebaseio.com",
+    "project_id": "salon-4c62f",
+    "storage_bucket": "salon-4c62f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135940368784:android:afea2fc27d79b2370a6b15",
+        "android_client_info": {
+          "package_name": "com.example.salon_booking_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135940368784-kpaqelesrj56lkhqh3ktv4ofvul7afvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP8gOHuBPbUnNGakU9fQXznN8ICMESy0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135940368784-kpaqelesrj56lkhqh3ktv4ofvul7afvp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "135940368784-tu3cqg9sovd830eonu0ps8lrqk8d1vmr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.salonBooking"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
