@@ -26,7 +26,19 @@ class _MainPageState extends State<MainPage> {
   var passwordController = TextEditingController();
   String selectedType = "initial";
   String selectedFrequency = "monthly";
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late User user;
+
+  @override
+  void initState() {
+    super.initState();
+    initUser();
+  }
+
+  initUser() async {
+    user = _auth.currentUser!;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +52,29 @@ class _MainPageState extends State<MainPage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
+    
 
-      // ignore: unnecessary_new
       drawer: new Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            Container(
+              color: purple,
+              child: UserAccountsDrawerHeader(
+                accountName: Text("${user.displayName}"),
+                accountEmail: Text("${user.email}"),
                 decoration: BoxDecoration(
-                  color: Color(0xff5c4db1),
-                  image:
-                      DecorationImage(image: AssetImage('../icons/user.png')),
+                  image: DecorationImage(
+                    image: AssetImage('../icons/user.png'),
+                    
+                  ),
                 ),
-                child: null),
+              ),
+            ),
+            SizedBox(height: 10,),
             ListTile(
               leading: Icon(Icons.favorite),
-              title: Text('favorites'),
+              title: Text('Favorites'),
               onTap: () => {},
             ),
             ListTile(
@@ -80,7 +99,7 @@ class _MainPageState extends State<MainPage> {
             ),
             ListTile(
               leading: Icon(Icons.description),
-              title: Text(''),
+              title: Text('Description'),
               onTap: () => null,
             ),
             Divider(),
@@ -268,15 +287,4 @@ class _MainPageState extends State<MainPage> {
     Navigator.pushNamed(context, '/CalendarPage');
   }
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  dynamic user;
-  late String userEmail;
-  late String userPhoneNumber;
-
-  Future<String> getCurrentUserInfo() async {
-    user = await _auth.currentUser!;
-    userEmail = user.email;
-    return userEmail;
-  }
 }
